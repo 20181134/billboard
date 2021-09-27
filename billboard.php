@@ -14,7 +14,7 @@
     <?php
     // $fileにmessages.txtを定義
     $file='messages.txt' ;
-   // ファイルが存在する時のみ$fileをデコードした文字列を$boardに保存
+    // ファイルが存在する時のみ$fileをデコードした文字列を$boardに保存
     if (file_exists($file)) {
         $board=json_decode(file_get_contents($file));
     }
