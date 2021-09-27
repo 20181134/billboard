@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Billboard</title>
+</head>
+<body>
+    <h1>掲示板</h1>
+    <form action="" method="post">
+        <p>メッセージを入力</p>
+        <input type="text" name="message">
+        <input type="submit" value="投稿">
+    </form>
+    <?php
+   $file='messages.txt' ;
+   if (file_exists($file)) {
+       $board=json_decode(file_get_contents($file));
+   }
+   $board[]=$_REQUEST['message'];
+   file_put_contents($file, json_encode($board));
+   foreach ($board as $message) {
+       echo '<p>', $message, '</p><hr>';
+   }
+   ?>
+</body>
+</html>
